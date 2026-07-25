@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilac Terminal - Happy 20th Birthday TLOS!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Khung ẩn chứa bài hát Kho báu từ YouTube (ID: XyPy4AWa9J0) -->
+    <div id="youtube-audio-container" style="display:none;"></div>
+
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="header-buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+            </div>
+            <span class="title">🌿 Lilac_Bot_v20.exe</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+            <!-- Nút bấm thủ công phát nhạc Kho báu chuẩn YouTube -->
+            <div style="text-align: center; margin-bottom: 12px;">
+                <button onclick="toggleMusic()" id="music-btn" style="background: #00676B; color: #FFFFF0; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-family: monospace; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,107,0.2);">
+                    🎵 BẤM VÀO ĐÂY ĐỂ NGHE BÀI "KHO BÁU" (NGỌT)
+                </button>
+            </div>
+
+            <div class="output welcome-banner">
+  ✨ 𝕃𝕀𝕃𝔸ℂ 𝕄𝔸𝕊ℂ𝕆𝕋 ✨
+======================================================
+  🌿 Xin chào <span class="highlight-name">Dương Thiên Phú (TLOS)</span>!
+  Tôi là <span class="lilac-name">Lilac</span> - mascot sẽ hướng dẫn anh khám phá 
+  món quà sinh nhật tuổi 20 đặc biệt ngày hôm nay!
+
+  💡 Gõ <span class="cmd-text">!lilac help</span> để xem danh sách các lệnh!
+======================================================
+            </div>
+            <div class="input-line">
+                <span class="prompt">phu_tlos@lilac-space:~$</span>
+                <input type="text" id="command-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isPlaying = false;
+        function toggleMusic() {
+            const container = document.getElementById('youtube-audio-container');
+            const btn = document.getElementById('music-btn');
+            if (!isPlaying) {
+                container.innerHTML = '<iframe width="300" height="150" src="https://www.youtube.com/embed/XyPy4AWa9J0?autoplay=1&loop=1&playlist=XyPy4AWa9J0" frameborder="0" allow="autoplay"></iframe>';
+                btn.innerText = '🎵 ĐÃ PHÁT BÀI "KHO BÁU" (BẬT/TẮT)';
+                btn.style.background = '#059669';
+                isPlaying = true;
+            } else {
+                container.innerHTML = '';
+                btn.innerText = '🎵 BẤM VÀO ĐÂY ĐỂ NGHE BÀI "KHO BÁU" (NGỌT)';
+                btn.style.background = '#00676B';
+                isPlaying = false;
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
